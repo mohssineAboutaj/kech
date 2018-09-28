@@ -1,0 +1,24 @@
+// Start meta tags
+meta(charset="utf-8")
+// meta tag for responsive
+meta(name="viewport", content="width=device-width, initial-scale=1")/
+// meta tag to change status bar color
+meta(name="theme-color", content=mainColor)/
+// for safari ( IOS )
+meta(name="apple-mobile-web-app-status-bar-style", content=mainColor)/
+// End meta tags
+// Start page title 
+title KECH - Creative portfolio
+// End page title 
+// Start fav icon 
+//link(rel="icon", href=imgDir + "favicon.ico", type="image/x-icon")/
+// End fav icon 
+// Start css files 
+// font-awesome iconic v5, bootstrap v4 css, ... 
+each cssFile in ["font-awesome-all-v5.min.css", "animate.min.css", "bootstrap.min.css", "animatedHeadLine.css","slick.css","style.css"]
+  link(rel="stylesheet", href=cssDir + cssFile)/
+// End css files
+
+// Start google analytics
+include _analytics.html
+// End google analytics

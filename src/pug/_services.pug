@@ -1,0 +1,16 @@
+// Start services
+-var servicesClass = ['col-xs-12', 'col-md-6', 'col-lg-3', 'mb-5'];
+
+.section#services.services.wow.fadeIn
+	.container
+		h2 services
+		.row
+			each aboutSubHeading, iconAbout in {"pencil-alt fas":"web design","object-ungroup fas":"grafic design","suitcase fas":"marketing","searchengin fab":"seo"}
+				div(class=servicesClass)
+					.card.wow.bounce
+						.card-body
+							.icon
+								i(class='fa-' + iconAbout + ' fa-2x')
+							h3= aboutSubHeading
+							p Lorem ipsum dolor sit amet, ea doming until epicuri iudicabit nam
+// End services

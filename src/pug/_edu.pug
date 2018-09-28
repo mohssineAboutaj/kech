@@ -1,0 +1,23 @@
+// Start my education
+-var loremText = "Lorem ipsum dolor sit amet, ea doming until epicuri iudicabit nam, te usu virtute placerat. Purto brute disputando cu est, te usu virtute placerat. Purto brute disputando cu est.";
+-var eduClass = ['col-xs-12', 'col-md-6', 'mb-5'];
+
+.section.edu#edu.wow.fadeIn
+	.container
+		h2 education
+		.bottom-heading
+			p Lorem ipsum dolor sit amet, ea doming until epicuri iudicabit nam, te usu virtute placerat. Purto brute disputando cu est, te usu virtute placerat. Purto brute disputando cu est.
+			p Lorem ipsum dolor sit amet, ea doming until epicuri iudicabit nam, te usu virtute placerat. Purto brute disputando cu est, te usu virtute placerat.
+		.row
+			-var data = [["Graphic Design Diploma","Reeves College / June 2008 / May 2010","4.0 GPA",loremText],["CIT Diploma","Lithbridge College / June 2006 / May 2008","1 Year",loremText]];
+			each info in data
+				div(class=eduClass)
+					.card
+						.card-body
+							.info
+								h3= info[0]
+								h5= info[1]
+								span.duration= info[2]
+								hr
+								p= info[3]
+// End my education

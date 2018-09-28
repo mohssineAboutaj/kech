@@ -1,0 +1,31 @@
+// Start contact me
+-var contactClass = ['col-xs-12', 'col-md-6', 'mb-5'];
+
+.section.contact-me#contact-me.wow.fadeIn
+	.container
+		.row
+			div(class=contactClass)
+				h2.text-left contact us
+				p Lorem ipsum dolor sit amet, ea doming until epicuri iudicabit nam, te usu virtute placerat. Purto brute disputando cu est, te usu virtute placerat. Purto brute disputando cu est.
+				each text, icon in {"address-card":"123 Street Name, Morocco","at":"mohssineaboutaj1995@gmail.com","phone":"+123345577546767"}
+					p 
+						i(class="fas fa-" + icon)
+						| &nbsp;&nbsp;&nbsp;
+						= text
+			div(class=contactClass)
+				form
+					div
+						label(for="name") name *
+						input(type="text", class="form-control", required="required", id="name")
+					div
+						label(for="email") email address *
+						input(type="email", class="form-control", required="required", id="email")
+					div
+						label(for="phone") phone *
+						input(type="text", class="form-control", required="required", id="phone")
+					div
+						label(for="message") message *
+						textarea(class="form-control", required="required", id="message", rows="7")
+					div.mb-0
+						input(type="submit", value!="&#xf1d8; contact me")
+// End contact me

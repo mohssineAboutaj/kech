@@ -1,0 +1,23 @@
+// Start work experience
+-var loremText = "Lorem ipsum dolor sit amet, ea doming until epicuri iudicabit nam, te usu virtute placerat. Purto brute disputando cu est, te usu virtute placerat. Purto brute disputando cu est.";
+-var expClass = ['col-xs-12', 'col-md-6', 'mb-5'];
+
+.section.exp#exp.wow.fadeIn
+	.container
+		h2 work experience
+		.bottom-heading
+			p Lorem ipsum dolor sit amet, ea doming until epicuri iudicabit nam, te usu virtute placerat. Purto brute disputando cu est, te usu virtute placerat. Purto brute disputando cu est.
+			p Lorem ipsum dolor sit amet, ea doming until epicuri iudicabit nam, te usu virtute placerat. Purto brute disputando cu est, te usu virtute placerat.
+		.row
+			-var data = [["Lead Web Designer","ABC Company Egypt / June 2008","1 Year",loremText],["Junior Designer","CDE Company May 2010","1 Year",loremText],["Web Developer","My Company May 2013","2 Year",loremText]];
+			each info in data
+				div(class=expClass)
+					.card
+						.card-body
+							.info
+								h3= info[0]
+								h5= info[1]
+								span.duration= info[2]
+								hr
+								p= info[3]
+// End work experience

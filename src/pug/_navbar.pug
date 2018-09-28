@@ -1,0 +1,15 @@
+// Start navbar
+nav.navbar.navbar-expand-lg
+  div.container
+    span.navbar-brand kech
+    button(class="navbar-toggler", type="button", data-toggle="collapse", data-target="#navbarSupportedContent", aria-controls="navbarSupportedContent", aria-expanded="false", aria-label="Toggle navigation")
+      i.fas.fa-bars.fa-2x
+    div.collapse.navbar-collapse#navbarSupportedContent
+      ul.navbar-nav.ml-auto
+        li.nav-item.active
+          a(class="nav-link", href="#home") home
+            span.sr-only (current)
+        each link in ["about us", "services", "skills","resume", "testemonials", "portfolio", "contact me"]
+          li.nav-item
+            a(class="nav-link", href="#"+ link.replace(' ',"-"))= link
+// End navbar

@@ -1,0 +1,39 @@
+// shuffle script styles
+
+.portfolio h2 { @extend %tc }
+
+.portfolio .shuffleMAF { @extend %tc; }
+
+.portfolio .shuffleMAF .shuffle-nav {
+	@extend .no-decore;
+	@extend %tc;
+	width: 98%;
+	margin: 20px auto;
+}
+
+.portfolio .shuffleMAF .shuffle-nav li {
+	background-color: $light;
+	color: $dark;
+	padding: 5px 20px;
+	margin: 10px 5px;
+	@extend %cap;
+	@extend %trans;
+	@extend %overHide;
+}
+
+.portfolio .shuffleMAF .shuffle-nav .shuffle-active, 
+.portfolio .shuffleMAF .shuffle-nav li:hover,
+.portfolio .shuffleMAF .shuffle-nav li:focus {
+	background-color: $secondary;
+	color: $light;
+}
+
+@for $i from 1 through 8 {
+	.portfolio .shuffleMAF .shuffle-content .img#{$i} {
+		background: url('#{$imgDir}https://via.placeholder.com/200x200');
+		@extend %cover;
+	  @include prefix(box-shadow, 5px 5px 15px rgba($dark, .25));
+	}
+}
+
+.el-hide { @extend .hide; }

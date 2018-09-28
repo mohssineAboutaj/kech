@@ -1,0 +1,49 @@
+//
+// Template name : KECH - creative portfolio
+// Creation date : 27/07/2018 
+// Author        : Mohssine Aboutaj 
+// Description   : This is template single page for ymy portfolio
+// Contact Me    : mohssineaboutajtemplates@gmail.com
+//
+//- Directory paths of all files, css and javaScript and images
+-var layout = 'app/';
+-var imgDir = '';
+-var cssDir = layout + 'css/';
+-var jsDir  = layout + 'js/';
+// mainColor & secondColor
+-var mainColor = '#ffc600';
+-var secondColor = '#6300a4';
+//------------------
+='\n'
+doctype html
+html(lang="zxx")
+	head
+		//- include head
+		include _head.pug
+	body(data-main-color=mainColor, data-second-color=secondColor)
+		//- include header
+		include _header.pug
+		//- include navbar
+		include _navbar.pug
+		//- include sub About
+		include _sub-about.pug
+		//- include about us
+		include _about.pug
+		// include services
+		include _services.pug
+		//- include skills
+		include _skills.pug
+		//- include resume
+		include _resume.pug
+		//- include my education & work experience
+		include _edu.pug
+		//- include my experience
+		include _exp.pug
+		//- include testimonials
+		include _testemonials.pug
+		//- include portfolio
+		include _portfolio.pug
+		//- include contact us
+		include _contact.pug
+		//- include footer
+		include _footer.pug
