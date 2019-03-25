@@ -30,7 +30,7 @@
 
 @for $i from 1 through 8 {
 	.portfolio .shuffleMAF .shuffle-content .img#{$i} {
-		background: url('#{$imgDir}https://via.placeholder.com/200x200');
+		background: url('#{$imgDir}s#{$i}.jpg');
 		@extend %cover;
 	  @include prefix(box-shadow, 5px 5px 15px rgba($dark, .25));
 	}

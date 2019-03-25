@@ -7,13 +7,17 @@
 
 $(function(){
 
+let mainColor = $('body').attr('data-main-color');
+let secondColor = $('body').attr('data-second-color');
+
 /* Start customize plugins */
 
   // TriggerFire the jquery.niceScroll.js plugin and customiz it
   if (window.innerWidth > 991) {
     // turn on niceScroll on medium screen and large only
     $("body").niceScroll({
-      cursorcolor: $('body').attr('data-main-color'),
+      cursorcolor: secondColor,
+      background: mainColor,
       cursoropacitymin: 0.5,
       cursorwidth: '5px',
       cursorborder: 'none'
@@ -92,7 +96,7 @@ $(function(){
   // make header full screen
   function headerFullScreen(){
     $('header, header .full-centering')
-        .height(window.innerHeight - $('nav').height());
+        .height(window.innerHeight);
   }
 
   $(window).on('load', headerFullScreen());
@@ -110,7 +114,7 @@ $(function(){
     smothScrolling(thisLink);
   });
   $('header a').on("click", function(){
-    var thisLink = this;
+    let thisLink = this;
     smothScrolling(thisLink);
   });
 
@@ -121,10 +125,10 @@ $(function(){
 
   $(window).on('scroll', function(){
     // make navbar fixed on scroll
-    if (pageYOffset > window.innerHeight - $('nav').height()) {
-      $('nav').addClass('fixed-top');
+    if (pageYOffset > $('nav').height()) {
+      $('nav').addClass('add-bg');
     } else {
-      $('nav').removeClass('fixed-top');
+      $('nav').removeClass('add-bg');
     }
   });
 

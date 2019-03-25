@@ -1,16 +1,16 @@
 /*
 ** Title         : kech
 ** Author        : Mohssine Aboutaj
-** Date of const : 27/07/2017
+** Date of const : 27/07/2018
 ** Contact       : mohssineaboutajtemplates@gmail.com
 */
 
 // Start path & directories
-$imgDir: '';
+$imgDir: '../img/';
 
 
 // Color list
-$primary  : #6300a4;
+$primary  : #2c3e50;
 $secondary: #ffc600;
 $third    : #eaeaea;
 $light    : #FFFFFF;
@@ -32,9 +32,8 @@ $fa5           : 'Font Awesome 5 Free';
 @import '_global';
 
 body {
-  @extend %bgdark1;
   font-family: $third-font;
-  background-color: $third;
+  background-color: $light;
 }
 
 %headingGeneralStyle {
@@ -67,6 +66,8 @@ h2 { @extend %tc }
   border: 1px solid $secondary;
 }
 
+.btn i { margin: 0 5px; }
+
 .btn:hover {
   background-color: transparent;
   border-color: $primary;
@@ -90,7 +91,8 @@ p {
 
 /* Start header */
 header {
-  background-image: url(#{$imgDir}https://via.placeholder.com/2000x1000);
+  background-image: url(#{$imgDir}header.jpg);
+  background-attachment: fixed;
   @extend %cover;
   color: $light;
 }
@@ -119,16 +121,22 @@ header h1 .cd-words-wrapper {
   color: $light;
 }
 
-header .btn:hover,
-header .btn:focus {
+header .btn:not(:first-child) {
+  background-color: transparent;
   color: $light !important;
+}
+
+header .btn:hover, 
+header .btn:focus {
+  color: $dark !important;
+  background-color: $secondary;
   border: 1px solid $light;
 }
 /* End header */
 
 /* Start navbar */
 nav {
-  background-color: $light;
+  background-color: transparent;
 }
 
 nav .navbar-toggler { color: $secondary }
@@ -141,11 +149,12 @@ nav .navbar-brand {
 }
 
 nav .navbar-nav a {
-  color: $dark;
+  color: $light;
   @extend %cap;
   font-family: $primary;
   @extend %trans;
   @extend %bold;
+  margin: 0 5px;
 }
 
 nav .navbar-nav a:hover, 
@@ -154,8 +163,9 @@ nav .navbar-nav .active * {
   color: $secondary;
 }
 
-.fixed-top {
-  @include prefix(box-shadow, 5px 5px 25px $third);
+.add-bg {
+  background-image: linear-gradient(to right, $primary, $red);
+  @include prefix(box-shadow, 5px 5px 5px rgba($primary, .5));
 }
 /* End navbar */
 
@@ -163,6 +173,29 @@ nav .navbar-nav .active * {
 .about-us img { width: 100%; }
 
 .about-us h3 b { color: $secondary }
+
+.about-us .icons {
+  @extend %trans;
+  @extend %circle;
+  @extend %overHide;
+  padding: 5px;
+  margin: 5px;
+  color: $light;
+  border: 1px solid $primary;
+}
+
+@mixin setHoverEffect($theColor) {
+  background-color: $theColor;
+  border-color: $theColor;
+}
+
+.about-us .icons.facebook-f { @include setHoverEffect($facebook); }
+.about-us .icons.linkedin-in { @include setHoverEffect($linkedin); }
+.about-us .icons.twitter { @include setHoverEffect($twitter); }
+
+.about-us .icons:hover {
+  background-color: $primary;
+}
 /* End about us */
 
 /* Start my services */
@@ -179,7 +212,7 @@ nav .navbar-nav .active * {
 .services .card .icon i {
   @extend %circle;
   background-color: $secondary;
-  color: $dark;
+  color: $light;
   padding: 20px;
 }
 /* End my services */
@@ -232,6 +265,40 @@ nav .navbar-nav .active * {
 
 /* Start portfolio */
 @import '_shuffle';
+
+.shuffle-item {
+  @extend %overHide;
+}
+
+.shuffle-item .h-equal-w,
+.shuffle-item .info {
+  @extend %rad10px;
+  @extend %trans;
+  backface-visibility: hidden;
+  @include prefix(perspective, 600px);
+}
+
+.shuffle-item .info {
+  @extend %overlay;
+  @include prefix(transform, rotateX(-180deg));
+  background-color: $primary;
+}
+
+.shuffle-item .info h4 { color: $light; }
+
+.shuffle-item .info .btn:hover {
+  background-color: transparent;
+  color: $secondary !important;
+  border-color: $secondary;
+}
+
+.shuffle-item:hover .h-equal-w {
+  @include prefix(transform, rotateX(180deg));
+}
+
+.shuffle-item:hover .info {
+  @include prefix(transform, rotateX(0deg));
+}
 /* End portfolio */
 
 /* Start contact me */
@@ -264,11 +331,15 @@ nav .navbar-nav .active * {
 
 /* Start footer */
 footer {
-  background-color: darken($dark, 5%);
+  background-color: $dark;
   color: $secondary;
   @extend %cap;
   @extend %tc;
   padding: 20px 0;
+}
+
+footer .col:first-child {
+  margin: 10px;
 }
 
 footer b { color: $light }
@@ -277,14 +348,16 @@ footer .social-media {
   @extend %trans;
   @extend %circle;
   @extend %overHide;
-  background-color: $secondary;
+  background-color: $light;
   color: $primary;
   padding: 5px;
-  margin: 0 5px;
+  margin: 5px;
+  border: 1px solid $light;
 }
 
 footer .social-media:hover {
-  background-color: $light;
+  background-color: transparent;
+  color: $light;
 }
 /* End footer */
 
@@ -312,9 +385,5 @@ footer .social-media:hover {
   /* Start header */
   header h1 { font-size: 2em !important }
   /* End header */
-
-  /* Start navbar */
-//  nav .navbar-nav li { font-size: 2em }
-  /* End navbar */
 }
 /* End media query */

@@ -1,21 +1,29 @@
 // Start meta tags
-meta(charset="utf-8")
+meta(charset="UTF-8")
 // meta tag for responsive
 meta(name="viewport", content="width=device-width, initial-scale=1")/
-// meta tag to change status bar color
+// meta tag to change status bar color & Capable meta
 meta(name="theme-color", content=mainColor)/
-// for safari ( IOS )
 meta(name="apple-mobile-web-app-status-bar-style", content=mainColor)/
+meta(name="msapplication-TileColor", content=mainColor)/
+meta(name="theme-color", content=mainColor)/
+meta(name="apple-mobile-web-app-capable", content="yes")/
+meta(name="mobile-web-app-capable", content="yes")/
+meta(name="HandheldFriendly", content="True")/
+// meta tag description & author
+meta(name="author", content=websiteAuthor)/
+meta(name="Description", content=websiteDescription)/
 // End meta tags
 // Start page title 
-title KECH - Creative portfolio
+title #{websiteTitle}
 // End page title 
 // Start fav icon 
-//link(rel="icon", href=imgDir + "favicon.ico", type="image/x-icon")/
+link(rel="icon", href=imgDir + "favicon.ico", type="image/x-icon")/
+link(rel="shortcut icon", href=imgDir + "favicon.ico", type="image/x-icon")/
 // End fav icon 
 // Start css files 
 // font-awesome iconic v5, bootstrap v4 css, ... 
-each cssFile in ["font-awesome-all-v5.min.css", "animate.min.css", "bootstrap.min.css", "animatedHeadLine.css","slick.css","style.css"]
+each cssFile in cssList
   link(rel="stylesheet", href=cssDir + cssFile)/
 // End css files
 

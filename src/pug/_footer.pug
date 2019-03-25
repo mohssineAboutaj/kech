@@ -4,16 +4,16 @@ footer
 		.row
 			.col
 				| Copyright &copy; 2018 
-				b mohssine aboutaj
-				| , MAF &trade; Inc.
+				b #{websiteAuthor}
+				|  - MAF &trade; Inc.
 			.col
 				.row.justify-content-center
-					each icon in ["globe fas","facebook-f fab","github fab","codepen fab","telegram fab"]
-						span.social-media
-							i(class="fa-fw fa-" + icon)
+					each iconName, iconHref in allIcons
+						a(href=iconHref, target="_blank", class="social-media")
+							i(class="fa-fw fa-" + iconName)
 // End footer
 
 // Start scripts
-each script in ["jquery-3.1.1.min.js", "popper.min.js", "bootstrap.min.js", "jquery.shuffleMAF.js", "wow.min.js", "jquery.nicescroll.min.js", "modernizr.js", "animatedHeadLine.js", "scrollTopMAF.js", "slick.min.js", "custom.js"]
+each script in jsList
 	script(src=jsDir + script)
 // End scripts

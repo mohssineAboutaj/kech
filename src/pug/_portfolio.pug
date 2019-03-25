@@ -1,5 +1,12 @@
 // Start portfolio
--var shuffleClass = ['wow','bounce','shuffle-item','mb-5','col-xs-12', 'col-sm-6', 'col-md-4', 'col-lg-3'];
+
+//- this mixin use in overlay projects
+mixin projectInfo
+	.info
+		.full-centering
+			div
+				h4 project title
+				a(href="#", class="btn") show project
 
 .section#portfolio.portfolio.wow.fadeIn
 	.container
@@ -12,19 +19,28 @@
 						li(data-filter=shuffleText)= shuffleText
 			.row.shuffle-content
 				div(class=shuffleClass, data-wow-delay=50).develope
-					.img1.h-equal-w
+					div(style="overflow: hidden")
+						.img1.h-equal-w
+						+projectInfo
 				div(class=shuffleClass, data-wow-delay=100).design
 					.img2.h-equal-w
+					+projectInfo
 				div(class=shuffleClass, data-wow-delay=150).video
 					.img3.h-equal-w
+					+projectInfo
 				div(class=shuffleClass, data-wow-delay=200).print
 					.img4.h-equal-w
+					+projectInfo
 				div(class=shuffleClass, data-wow-delay=250).design
 					.img5.h-equal-w
+					+projectInfo
 				div(class=shuffleClass, data-wow-delay=300).design
 					.img6.h-equal-w
+					+projectInfo
 				div(class=shuffleClass, data-wow-delay=350).video
 					.img7.h-equal-w
+					+projectInfo
 				div(class=shuffleClass, data-wow-delay=400).print
 					.img8.h-equal-w
+					+projectInfo
 // End portfolio
