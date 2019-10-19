@@ -64,9 +64,11 @@ gulp.task('sassTask', () => {
 // PUG task 
 gulp.task('pugTask', () => {
   return gulp.src(pugIndex)
-        .pipe(pug({pretty: true}))
+        .pipe(pug({
+          pretty: true,
+        }))
         .on("error", showError)
-        .pipe(gulp.dest(myRoot))
+        .pipe(gulp.dest(layout))
         .pipe(browserSync.stream());
 });
 
@@ -104,7 +106,7 @@ gulp.task('imageTask', () => {
 // Static Server + watching files
 gulp.task('browser-sync-task', () => {
   browserSync.init({
-    server: myRoot,
+    server: layout,
     ui: false,
     port: 5000,
   });
