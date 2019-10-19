@@ -164,7 +164,8 @@ nav .navbar-nav .active * {
 }
 
 .add-bg {
-  background-image: linear-gradient(to right, $primary, $red);
+  background-color: $primary;
+//  background-image: linear-gradient(to right, $primary, $secondary);
   @include prefix(box-shadow, 5px 5px 5px rgba($primary, .5));
 }
 /* End navbar */

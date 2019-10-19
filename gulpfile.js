@@ -53,7 +53,7 @@ function showError(err){
 }
 
 // SASS task 
-gulp.task('sassTask', ()=>{
+gulp.task('sassTask', () => {
   gulp.src(sassFiles)
       .pipe(sass())
       .on("error", showError)
@@ -62,7 +62,7 @@ gulp.task('sassTask', ()=>{
 });
 
 // PUG task 
-gulp.task('pugTask', ()=>{
+gulp.task('pugTask', () => {
   return gulp.src(pugIndex)
         .pipe(pug({pretty: true}))
         .on("error", showError)
@@ -71,7 +71,7 @@ gulp.task('pugTask', ()=>{
 });
 
 // JAVASCRIPT task
-gulp.task('jsTask', ()=>{
+gulp.task('jsTask', () => {
   gulp.src(src + jsFiles)
       .pipe(minify({
         ext: { min:'.js' },
@@ -83,7 +83,7 @@ gulp.task('jsTask', ()=>{
 });
 
 // CSS task
-gulp.task('cssTask', ()=>{
+gulp.task('cssTask', () => {
   return gulp.src(src + cssFiles)
         .pipe(cleanCSS({compatibility: 'ie8'}))
         .pipe(gulp.dest(layout + cssDir))
@@ -91,22 +91,27 @@ gulp.task('cssTask', ()=>{
 });
 
 // image compressing
-gulp.task('imageTask', ()=>{
-  gulp.src(src + imgs)
-      .pipe(image())
-      .pipe(gulp.dest(layout + imgDir))
-      .pipe(browserSync.stream());
+gulp.task('imageTask', () => {
+  gulp.src([
+      src + imgs,
+      '!' + src + imgs + ".gif"
+    ])
+    .pipe(image())
+    .pipe(gulp.dest(layout + imgDir))
+    .pipe(browserSync.stream());
 });
 
 // Static Server + watching files
-gulp.task('browser-sync-task', ()=>{
+gulp.task('browser-sync-task', () => {
   browserSync.init({
-    server: myRoot
+    server: myRoot,
+    ui: false,
+    port: 5000,
   });
 });
 
 // Watch task
-gulp.task('watch-task', ()=>{
+gulp.task('watch-task', () => {
   gulp.watch(sassFiles, ['sassTask']);
   gulp.watch(pugFiles, ['pugTask']);
   gulp.watch(src + cssFiles, ['cssTask']);
@@ -116,6 +121,6 @@ gulp.task('watch-task', ()=>{
 });
 
 // Run default task
-gulp.task('default', ()=>{
+gulp.task('default', () => {
   return runSequence('sassTask', 'pugTask', 'cssTask', 'jsTask', 'imageTask', 'browser-sync-task', 'watch-task');
 });
