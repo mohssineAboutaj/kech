@@ -1,37 +1,42 @@
 {
-  "name": "kech",
-  "version": "1.0.0",
-  "description": "This is an awesome one page portfolio",
-  "scripts": {
-    "start": "gulp",
-    "deploy": "netlify deploy --prod"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mohssineAboutaj/kech.git"
-  },
-  "devDependencies": {
-    "browser-sync": "^2.24.6",
-    "gulp": "^3.9.0",
-    "gulp-clean-css": "^3.10.0",
-    "gulp-cli": "^2.0.1",
-    "gulp-imagemin": "^6.1.1",
-    "gulp-minify": "^3.1.0",
-    "gulp-pug": "^4.0.1",
-    "gulp-sass": "^4.0.2",
-    "run-sequence": "^2.2.1"
-  },
-  "keywords": [
-    "sass",
-    "pug",
-    "minify",
-    "browser-sync",
-    "gulp-clean-css"
-  ],
-  "author": "Mohssine Aboutaj",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/mohssineAboutaj/kech/issues"
-  },
-  "homepage": "https://github.com/mohssineAboutaj/kech#readme"
+	"name": "kech",
+	"version": "1.0.0",
+	"description": "This is an awesome one page portfolio",
+	"scripts": {
+		"start": "gulp",
+		"watch": "gulp",
+		"build": "gulp buildTask",
+		"build:css": "gulp cssTask",
+		"build:html": "gulp pugTask",
+		"build:js": "gulp jsTask",
+		"build:images": "gulp imageTask",
+		"deploy": "netlify deploy --prod"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/mohssineAboutaj/kech.git"
+	},
+	"devDependencies": {
+		"browser-sync": "^2.24.6",
+		"gulp": "4.0.0",
+		"gulp-clean-css": "^3.10.0",
+		"gulp-cli": "^2.0.1",
+		"gulp-imagemin": "^6.1.1",
+		"gulp-minify": "^3.1.0",
+		"gulp-pug": "^4.0.1",
+		"gulp-sass": "^4.0.2"
+	},
+	"keywords": [
+		"sass",
+		"pug",
+		"minify",
+		"browser-sync",
+		"gulp-clean-css"
+	],
+	"author": "Mohssine Aboutaj",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/mohssineAboutaj/kech/issues"
+	},
+	"homepage": "https://github.com/mohssineAboutaj/kech#readme"
 }

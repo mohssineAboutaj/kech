@@ -1,128 +1,154 @@
 // gulp file
 
-const gulp = require('gulp'); 
+const { series, parallel, src, dest, task, watch } = require("gulp");
 
 /* Start reqiure packages area */
 
-// sass plugin 
-let sass        = require('gulp-sass');
+// sass plugin
+const sass = require("gulp-sass");
 
-// pug plugin 
-let pug         = require('gulp-pug');
+// pug plugin
+const pug = require("gulp-pug");
 
 // compress js files
-let minify      = require('gulp-minify');
+const minify = require("gulp-minify");
 
 // compress css files
-let cleanCSS    = require('gulp-clean-css');
+const cleanCSS = require("gulp-clean-css");
 
 // minified imgs
-let image       = require('gulp-imagemin');
+const image = require("gulp-imagemin");
 
 // reload browser auto plugin
-let browserSync = require('browser-sync');
+const browserSync = require("browser-sync");
 
-// run sequence plugin to run task one by one
-let runSequence = require('run-sequence');
 /* End reqiure packages area */
 
 /* Start directories area */
-let myRoot  = './',
-    src     = myRoot + 'src/',
-    layout  = myRoot + 'app/',
-    imgDir  = 'img',
-    sassDir = src + 'sass',
-    pugDir  = src + 'pug',
-    jsDir   = 'js',
-    cssDir  = 'css';
+const myRoot = "./";
+const projectSRC = myRoot + "src/";
+const layout = myRoot + "app/";
+const imgDir = "img";
+const sassDir = projectSRC + "sass";
+const pugDir = projectSRC + "pug";
+const jsDir = "js";
+const cssDir = "css";
 /* End directories area */
 
 /* Start file path's area */
-let imgs      = imgDir + '/**/*',
-    sassFiles = sassDir + '/*.scss',
-    jsFiles   = jsDir + '/*.js',
-    cssFiles  = cssDir + '/*.css',
-    pugFiles  = pugDir + '/*.pug',
-    pugIndex  = pugDir + '/index.pug';
+const imgs = imgDir + "/**/*";
+const sassFiles = sassDir + "/*.scss";
+const jsFiles = jsDir + "/*.js";
+const cssFiles = cssDir + "/*.css";
+const pugFiles = pugDir + "/*.pug";
+const pugIndex = pugDir + "/index.pug";
 /* End file path's area */
 
+/* Start task custom functions & helper functions area */
 // showt & prevent error stop the gulp script
-function showError(err){
-  console.log(err);
-  this.emit('end');
+function showError(err) {
+	console.log(err);
+	this.emit("end");
 }
 
-// SASS task 
-gulp.task('sassTask', () => {
-  gulp.src(sassFiles)
-      .pipe(sass())
-      .on("error", showError)
-      .pipe(gulp.dest(src + cssDir))
-      .pipe(browserSync.stream());
-});
+function sassTaskFunc() {
+	return src(sassFiles)
+		.pipe(sass())
+		.on("error", showError)
+		.pipe(dest(projectSRC + cssDir));
+}
+function pugTaskFunc() {
+	return src(pugIndex)
+		.pipe(
+			pug({
+				pretty: true,
+			})
+		)
+		.on("error", showError)
+		.pipe(dest(layout))
+		.pipe(browserSync.stream());
+}
+function jsTaskFunc() {
+	return src(projectSRC + jsFiles)
+		.pipe(
+			minify({
+				ext: { min: ".js" },
+				noSource: true,
+			})
+		)
+		.on("error", showError)
+		.pipe(dest(layout + jsDir))
+		.pipe(browserSync.stream());
+}
+function cssTaskFunc() {
+	return src(projectSRC + cssFiles)
+		.pipe(cleanCSS({ compatibility: "ie8" }))
+		.pipe(dest(layout + cssDir))
+		.pipe(browserSync.stream());
+}
+function imageTaskFunc() {
+	return src([projectSRC + imgs, "!" + projectSRC + imgs + ".gif"])
+		.pipe(image())
+		.pipe(dest(layout + imgDir))
+		.pipe(browserSync.stream());
+}
+function browserSyncFunc() {
+	return browserSync.init({
+		server: layout,
+		ui: false,
+		port: 5000,
+	});
+}
+function watchFilesFunc() {
+	watch(sassFiles, series(sassTaskFunc, cssTaskFunc));
+	watch(pugFiles, pugTaskFunc);
+	watch(projectSRC + jsFiles, jsTaskFunc);
+	watch(imgs, imageTaskFunc);
+}
 
-// PUG task 
-gulp.task('pugTask', () => {
-  return gulp.src(pugIndex)
-        .pipe(pug({
-          pretty: true,
-        }))
-        .on("error", showError)
-        .pipe(gulp.dest(layout))
-        .pipe(browserSync.stream());
-});
+/* End task custom functions & helper functions area */
+
+/* Start task exec area */
+
+// SASS task
+task("sassTask", sassTaskFunc);
+
+// PUG task
+task("pugTask", pugTaskFunc);
 
 // JAVASCRIPT task
-gulp.task('jsTask', () => {
-  gulp.src(src + jsFiles)
-      .pipe(minify({
-        ext: { min:'.js' },
-        noSource: true
-      }))
-      .on("error", showError)
-      .pipe(gulp.dest(layout + jsDir))
-      .pipe(browserSync.stream());
-});
+task("jsTask", jsTaskFunc);
 
 // CSS task
-gulp.task('cssTask', () => {
-  return gulp.src(src + cssFiles)
-        .pipe(cleanCSS({compatibility: 'ie8'}))
-        .pipe(gulp.dest(layout + cssDir))
-        .pipe(browserSync.stream());
-});
+task("cssTask", series(cssTaskFunc, sassTaskFunc));
 
 // image compressing
-gulp.task('imageTask', () => {
-  gulp.src([
-      src + imgs,
-      '!' + src + imgs + ".gif"
-    ])
-    .pipe(image())
-    .pipe(gulp.dest(layout + imgDir))
-    .pipe(browserSync.stream());
-});
+task("imageTask", imageTaskFunc);
 
 // Static Server + watching files
-gulp.task('browser-sync-task', () => {
-  browserSync.init({
-    server: layout,
-    ui: false,
-    port: 5000,
-  });
-});
+task("browserSync", browserSyncFunc);
 
 // Watch task
-gulp.task('watch-task', () => {
-  gulp.watch(sassFiles, ['sassTask']);
-  gulp.watch(pugFiles, ['pugTask']);
-  gulp.watch(src + cssFiles, ['cssTask']);
-  gulp.watch(src + jsFiles, ['jsTask']);
-  ['browser-sync-task'];
-  gulp.watch(imgs, ['imageTask']);
-});
+task("watchTask", watchFilesFunc);
 
-// Run default task
-gulp.task('default', () => {
-  return runSequence('sassTask', 'pugTask', 'cssTask', 'jsTask', 'imageTask', 'browser-sync-task', 'watch-task');
-});
+// Default task
+task(
+	"buildTask",
+	series(sassTaskFunc, pugTaskFunc, jsTaskFunc, cssTaskFunc, imageTaskFunc)
+);
+
+// Default task
+task(
+	"default",
+	parallel(
+		sassTaskFunc,
+		pugTaskFunc,
+		jsTaskFunc,
+		cssTaskFunc,
+		imageTaskFunc,
+		watchFilesFunc,
+		browserSyncFunc
+	)
+);
+
+/* Start task exec area */

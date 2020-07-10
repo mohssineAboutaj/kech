@@ -6,215 +6,241 @@
 */
 
 // Start path & directories
-$imgDir: '../img/';
-
+$imgDir: "../img/";
 
 // Color list
-$primary  : #2c3e50;
+$primary: #2c3e50;
 $secondary: #ffc600;
-$third    : #eaeaea;
-$light    : #FFFFFF;
-$dark     : #272727;
+$third: #eaeaea;
+$light: #ffffff;
+$dark: #272727;
 
 // font family variables & links
 // import used fonts from google fonts
-@import url('https://fonts.googleapis.com/css?family=Cairo|Lato|Roboto');
+@import url("https://fonts.googleapis.com/css?family=Cairo|Lato|Roboto");
 // fonts variables
-$primary-font  : 'Roboto', sans-serif;
-$secondary-font: 'Cairo', sans-serif;
-$third-font    : 'Lato', sans-serif;
-// font family for fontAwesome5 
-$fa5           : 'Font Awesome 5 Free';
+$primary-font: "Roboto", sans-serif;
+$secondary-font: "Cairo", sans-serif;
+$third-font: "Lato", sans-serif;
+// font family for fontAwesome5
+$fa5: "Font Awesome 5 Free";
 // End path & directories
 
 /* Start global style */
 // import reqiure files
-@import '_global';
+@import "_global";
 
 body {
-  font-family: $third-font;
-  background-color: $light;
+	font-family: $third-font;
+	background-color: $light;
 }
 
 %headingGeneralStyle {
-  @extend %upper;
-  margin-bottom: 20px;
-  font-family: $primary-font;
-  color: $primary;
-  font-weight: 700;
-  letter-spacing: 5px;
+	@extend %upper;
+	margin-bottom: 20px;
+	font-family: $primary-font;
+	color: $primary;
+	font-weight: 700;
+	letter-spacing: 5px;
 }
 
 @for $i from 1 through 6 {
-  h#{$i} { @extend %headingGeneralStyle; }
+	h#{$i} {
+		@extend %headingGeneralStyle;
+	}
 }
 
-h1, h2 { letter-spacing: 5px }
+h1,
+h2 {
+	letter-spacing: 5px;
+}
 
-h2 { @extend %tc }
+h2 {
+	@extend %tc;
+}
 
 .btn {
-  @extend %cap;
-  @extend %rad10px;
-  @extend %trans;
-  margin: 10px 5px;
-  padding: 10px 15px;
-  font-family: $fa5, $primary-font;
-  font-size: 1em;
-  background-color: $secondary;
-  color: $primary !important;
-  border: 1px solid $secondary;
+	@extend %cap;
+	@extend %rad10px;
+	@extend %trans;
+	margin: 10px 5px;
+	padding: 10px 15px;
+	font-family: $fa5, $primary-font;
+	font-size: 1em;
+	background-color: $secondary;
+	color: $primary !important;
+	border: 1px solid $secondary;
 }
 
-.btn i { margin: 0 5px; }
+.btn i {
+	margin: 0 5px;
+}
 
 .btn:hover {
-  background-color: transparent;
-  border-color: $primary;
+	background-color: transparent;
+	border-color: $primary;
 }
 
 p {
-  font-family: $secondary-font;
-  margin-bottom: 25px;
-  color: $dark
+	font-family: $secondary-font;
+	margin-bottom: 25px;
+	color: $dark;
 }
 
-.section:nth-child(even) { background-color: $light; }
+.section:nth-child(even) {
+	background-color: $light;
+}
 
-.bottom-heading { @extend %row }
+.bottom-heading {
+	@extend %row;
+}
 
 .bottom-heading > p {
-  @extend %flex;
-  padding: 15px;
+	@extend %flex;
+	padding: 15px;
 }
 /* End global style */
 
 /* Start header */
 header {
-  background-image: url(#{$imgDir}header.jpg);
-  background-attachment: fixed;
-  @extend %cover;
-  color: $light;
+	background-image: url(#{$imgDir}header.jpg);
+	background-attachment: fixed;
+	@extend %cover;
+	color: $light;
 }
 
-header .overlay { 
-  @extend %bgdark75;
+header .overlay {
+	@extend %bgdark75;
 }
 
 header h1 {
-  font-weight: 900;
-  margin-bottom: 40px;
-  padding: 10px;
-  font-size: 4em !important;
+	font-weight: 900;
+	margin-bottom: 40px;
+	padding: 10px;
+	font-size: 4em !important;
 }
 
 header h1 span:first-child {
-  @extend %bold;
-  color: $secondary;
-  font-size: 1.25em;
+	@extend %bold;
+	color: $secondary;
+	font-size: 1.25em;
 }
 
-header h1 .cd-headline { perspective: 300px; }
+header h1 .cd-headline {
+	perspective: 300px;
+}
 
 header h1 .cd-words-wrapper {
-  @extend %bold;
-  color: $light;
+	@extend %bold;
+	color: $light;
 }
 
 header .btn:not(:first-child) {
-  background-color: transparent;
-  color: $light !important;
+	background-color: transparent;
+	color: $light !important;
 }
 
-header .btn:hover, 
+header .btn:hover,
 header .btn:focus {
-  color: $dark !important;
-  background-color: $secondary;
-  border: 1px solid $light;
+	color: $dark !important;
+	background-color: $secondary;
+	border: 1px solid $light;
 }
 /* End header */
 
 /* Start navbar */
 nav {
-  background-color: transparent;
+	background-color: transparent;
 }
 
-nav .navbar-toggler { color: $secondary }
+nav .navbar-toggler {
+	color: $secondary;
+}
 
 nav .navbar-brand {
-  font-size: 2em;
-  @extend %bold;
-  @extend %upper;
-  color: $secondary;
+	font-size: 2em;
+	@extend %bold;
+	@extend %upper;
+	color: $secondary;
 }
 
 nav .navbar-nav a {
-  color: $light;
-  @extend %cap;
-  font-family: $primary;
-  @extend %trans;
-  @extend %bold;
-  margin: 0 5px;
+	color: $light;
+	@extend %cap;
+	font-family: $primary;
+	@extend %trans;
+	@extend %bold;
+	margin: 0 5px;
 }
 
-nav .navbar-nav a:hover, 
-nav .navbar-nav a:focus, 
+nav .navbar-nav a:hover,
+nav .navbar-nav a:focus,
 nav .navbar-nav .active * {
-  color: $secondary;
+	color: $secondary;
 }
 
 .add-bg {
-  background-color: $primary;
-//  background-image: linear-gradient(to right, $primary, $secondary);
-  @include prefix(box-shadow, 5px 5px 5px rgba($primary, .5));
+	background-color: $primary;
+	//  background-image: linear-gradient(to right, $primary, $secondary);
+	@include prefix(box-shadow, 5px 5px 5px rgba($primary, 0.5));
 }
 /* End navbar */
 
 /* Start about us */
-.about-us img { width: 100%; }
+.about-us img {
+	width: 100%;
+}
 
-.about-us h3 b { color: $secondary }
+.about-us h3 b {
+	color: $secondary;
+}
 
 .about-us .icons {
-  @extend %trans;
-  @extend %circle;
-  @extend %overHide;
-  padding: 5px;
-  margin: 5px;
-  color: $light;
-  border: 1px solid $primary;
+	@extend %trans;
+	@extend %circle;
+	@extend %overHide;
+	padding: 5px;
+	margin: 5px;
+	color: $light;
+	border: 1px solid $primary;
 }
 
 @mixin setHoverEffect($theColor) {
-  background-color: $theColor;
-  border-color: $theColor;
+	background-color: $theColor;
+	border-color: $theColor;
 }
 
-.about-us .icons.facebook-f { @include setHoverEffect($facebook); }
-.about-us .icons.linkedin-in { @include setHoverEffect($linkedin); }
-.about-us .icons.twitter { @include setHoverEffect($twitter); }
+.about-us .icons.facebook-f {
+	@include setHoverEffect($facebook);
+}
+.about-us .icons.linkedin-in {
+	@include setHoverEffect($linkedin);
+}
+.about-us .icons.twitter {
+	@include setHoverEffect($twitter);
+}
 
 .about-us .icons:hover {
-  background-color: $primary;
+	background-color: $primary;
 }
 /* End about us */
 
 /* Start my services */
 .services .card {
-  @extend %tc;
-  @include prefix(box-shadow, 5px 5px 15px rgba($dark, .25));
-  margin-top: 50px;
+	@extend %tc;
+	@include prefix(box-shadow, 5px 5px 15px rgba($dark, 0.25));
+	margin-top: 50px;
 }
 
 .services .card .icon {
-  margin: -50px auto 50px auto;
+	margin: -50px auto 50px auto;
 }
 
 .services .card .icon i {
-  @extend %circle;
-  background-color: $secondary;
-  color: $light;
-  padding: 20px;
+	@extend %circle;
+	background-color: $secondary;
+	color: $light;
+	padding: 20px;
 }
 /* End my services */
 
@@ -222,169 +248,185 @@ nav .navbar-nav .active * {
 /* End my skills */
 
 /* Start resume */
-.resume { @extend %tc }
+.resume {
+	@extend %tc;
+}
 /* End resume */
 
 /* Start my education & work experience */
-.edu .info, .exp .info { margin-bottom: 40px; }
+.edu .info,
+.exp .info {
+	margin-bottom: 40px;
+}
 
-.edu .duration, .exp .duration {
-  padding: 5px 10px;
-  background-color: $third;
-  color: $dark;
-  @extend %rad5px;
+.edu .duration,
+.exp .duration {
+	padding: 5px 10px;
+	background-color: $third;
+	color: $dark;
+	@extend %rad5px;
 }
 /* End my education & work experience */
 
 /* Start testimonials */
 .testemonials p {
-  @extend %rel;
-  margin: 30px 5px;
+	@extend %rel;
+	margin: 30px 5px;
 }
 
-.testemonials p:before, 
+.testemonials p:before,
 .testemonials p:after {
-  font-weight: 900;
-  font-family: $fa5;
-  color: $secondary;
-  @extend %abs;
-  font-size: 1.5em;
+	font-weight: 900;
+	font-family: $fa5;
+	color: $secondary;
+	@extend %abs;
+	font-size: 1.5em;
 }
 
 .testemonials p:before {
-  content: '\f10d';
-  top: -35px;
-  right: -30px;
+	content: "\f10d";
+	top: -35px;
+	right: -30px;
 }
 
 .testemonials p:after {
-  content: '\f10e';
-  bottom: -25px;
-  left: -30px;
+	content: "\f10e";
+	bottom: -25px;
+	left: -30px;
 }
 /* End testimonials */
 
 /* Start portfolio */
-@import '_shuffle';
+@import "_shuffle";
 
 .shuffle-item {
-  @extend %overHide;
+	@extend %overHide;
 }
 
 .shuffle-item .h-equal-w,
 .shuffle-item .info {
-  @extend %rad10px;
-  @extend %trans;
-  backface-visibility: hidden;
-  @include prefix(perspective, 600px);
+	@extend %rad10px;
+	@extend %trans;
+	backface-visibility: hidden;
+	@include prefix(perspective, 600px);
 }
 
 .shuffle-item .info {
-  @extend %overlay;
-  @include prefix(transform, rotateX(-180deg));
-  background-color: $primary;
+	@extend %overlay;
+	@include prefix(transform, rotateX(-180deg));
+	background-color: $primary;
 }
 
-.shuffle-item .info h4 { color: $light; }
+.shuffle-item .info h4 {
+	color: $light;
+}
 
 .shuffle-item .info .btn:hover {
-  background-color: transparent;
-  color: $secondary !important;
-  border-color: $secondary;
+	background-color: transparent;
+	color: $secondary !important;
+	border-color: $secondary;
 }
 
 .shuffle-item:hover .h-equal-w {
-  @include prefix(transform, rotateX(180deg));
+	@include prefix(transform, rotateX(180deg));
 }
 
 .shuffle-item:hover .info {
-  @include prefix(transform, rotateX(0deg));
+	@include prefix(transform, rotateX(0deg));
 }
 /* End portfolio */
 
 /* Start contact me */
-.contact-me i { color: $secondary }
+.contact-me i {
+	color: $secondary;
+}
 
-.contact-me form > div { margin-bottom: 20px }
+.contact-me form > div {
+	margin-bottom: 20px;
+}
 
 .contact-me form label {
-  @extend %cap;
-  font-size: 1.2em;
+	@extend %cap;
+	font-size: 1.2em;
 }
 
-.contact-me form input, 
+.contact-me form input,
 .contact-me form textarea {
-  @extend %no-border;
-  @extend %rad5px;
-  padding: 5px;
-  font-size: 1em;
+	@extend %no-border;
+	@extend %rad5px;
+	padding: 5px;
+	font-size: 1em;
 }
 
-.contact-me form input:not([type="submit"]), 
+.contact-me form input:not([type="submit"]),
 .contact-me form textarea {
-  background-color: $third;
+	background-color: $third;
 }
 
 .contact-me form input[type="submit"] {
-  @extend .btn;
+	@extend .btn;
 }
 /* End contact me */
 
 /* Start footer */
 footer {
-  background-color: $dark;
-  color: $secondary;
-  @extend %cap;
-  @extend %tc;
-  padding: 20px 0;
+	background-color: $dark;
+	color: $secondary;
+	@extend %cap;
+	@extend %tc;
+	padding: 20px 0;
 }
 
 footer .col:first-child {
-  margin: 10px;
+	margin: 10px;
 }
 
-footer b { color: $light }
+footer b {
+	color: $light;
+}
 
 footer .social-media {
-  @extend %trans;
-  @extend %circle;
-  @extend %overHide;
-  background-color: $light;
-  color: $primary;
-  padding: 5px;
-  margin: 5px;
-  border: 1px solid $light;
+	@extend %trans;
+	@extend %circle;
+	@extend %overHide;
+	background-color: $light;
+	color: $primary;
+	padding: 5px;
+	margin: 5px;
+	border: 1px solid $light;
 }
 
 footer .social-media:hover {
-  background-color: transparent;
-  color: $light;
+	background-color: transparent;
+	color: $light;
 }
 /* End footer */
 
 /* Start media query */
 @media (min-width: 992px) {
-  /* Start global style */
-  .bottom-heading > p {
-    width: 50%;
-  }
-  /* End global style */
+	/* Start global style */
+	.bottom-heading > p {
+		width: 50%;
+	}
+	/* End global style */
 }
 
 @media (max-width: 991px) {
-  /* Start global style */
+	/* Start global style */
 
-  h2 {
-    margin-top: 20px;
-    text-align: center;
-  }
-  .bottom-heading > p {
-    width: 100%;
-  }
-  /* End global style */
+	h2 {
+		margin-top: 20px;
+		text-align: center;
+	}
+	.bottom-heading > p {
+		width: 100%;
+	}
+	/* End global style */
 
-  /* Start header */
-  header h1 { font-size: 2em !important }
-  /* End header */
+	/* Start header */
+	header h1 {
+		font-size: 2em !important;
+	}
+	/* End header */
 }
 /* End media query */

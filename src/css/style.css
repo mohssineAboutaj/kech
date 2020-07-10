@@ -36,7 +36,7 @@
   list-style: none; }
 
 .no-decore a, .reset-all a, .portfolio .shuffleMAF .shuffle-nav a {
-  color: #FFFFFF; }
+  color: #ffffff; }
 
 h2, .services .card, .resume, .portfolio h2, .portfolio .shuffleMAF, .portfolio .shuffleMAF .shuffle-nav, footer {
   text-align: center; }
@@ -95,7 +95,8 @@ header, .portfolio .shuffleMAF .shuffle-content .img1, .portfolio .shuffleMAF .s
 .hide, .el-hide {
   display: none; }
 
-.edu .duration, .exp .duration, .contact-me form input,
+.edu .duration,
+.exp .duration, .contact-me form input,
 .contact-me form textarea {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -150,7 +151,7 @@ header .overlay {
 
 body {
   font-family: "Lato", sans-serif;
-  background-color: #FFFFFF; }
+  background-color: #ffffff; }
 
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: 20px;
@@ -159,7 +160,8 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   letter-spacing: 5px; }
 
-h1, h2 {
+h1,
+h2 {
   letter-spacing: 5px; }
 
 .btn, .contact-me form input[type="submit"] {
@@ -184,7 +186,7 @@ p {
   color: #272727; }
 
 .section:nth-child(even) {
-  background-color: #FFFFFF; }
+  background-color: #ffffff; }
 
 .bottom-heading > p {
   padding: 15px; }
@@ -194,7 +196,7 @@ p {
 header {
   background-image: url(../img/header.jpg);
   background-attachment: fixed;
-  color: #FFFFFF; }
+  color: #ffffff; }
 
 header h1 {
   font-weight: 900;
@@ -210,11 +212,11 @@ header h1 .cd-headline {
   perspective: 300px; }
 
 header h1 .cd-words-wrapper {
-  color: #FFFFFF; }
+  color: #ffffff; }
 
 header .btn:not(:first-child), header .contact-me form input:not(:first-child)[type="submit"], .contact-me form header input:not(:first-child)[type="submit"] {
   background-color: transparent;
-  color: #FFFFFF !important; }
+  color: #ffffff !important; }
 
 header .btn:hover, header .contact-me form input:hover[type="submit"], .contact-me form header input:hover[type="submit"],
 header .btn:focus,
@@ -222,7 +224,7 @@ header .contact-me form input:focus[type="submit"],
 .contact-me form header input:focus[type="submit"] {
   color: #272727 !important;
   background-color: #ffc600;
-  border: 1px solid #FFFFFF; }
+  border: 1px solid #ffffff; }
 
 /* End header */
 /* Start navbar */
@@ -237,7 +239,7 @@ nav .navbar-brand {
   color: #ffc600; }
 
 nav .navbar-nav a {
-  color: #FFFFFF;
+  color: #ffffff;
   font-family: #2c3e50;
   margin: 0 5px; }
 
@@ -265,7 +267,7 @@ nav .navbar-nav .active * {
 .about-us .icons {
   padding: 5px;
   margin: 5px;
-  color: #FFFFFF;
+  color: #ffffff;
   border: 1px solid #2c3e50; }
 
 .about-us .icons.facebook-f {
@@ -298,7 +300,7 @@ nav .navbar-nav .active * {
 
 .services .card .icon i {
   background-color: #ffc600;
-  color: #FFFFFF;
+  color: #ffffff;
   padding: 20px; }
 
 /* End my services */
@@ -307,10 +309,12 @@ nav .navbar-nav .active * {
 /* Start resume */
 /* End resume */
 /* Start my education & work experience */
-.edu .info, .exp .info {
+.edu .info,
+.exp .info {
   margin-bottom: 40px; }
 
-.edu .duration, .exp .duration {
+.edu .duration,
+.exp .duration {
   padding: 5px 10px;
   background-color: #eaeaea;
   color: #272727; }
@@ -328,12 +332,12 @@ nav .navbar-nav .active * {
   font-size: 1.5em; }
 
 .testemonials p:before {
-  content: '\f10d';
+  content: "\f10d";
   top: -35px;
   right: -30px; }
 
 .testemonials p:after {
-  content: '\f10e';
+  content: "\f10e";
   bottom: -25px;
   left: -30px; }
 
@@ -344,7 +348,7 @@ nav .navbar-nav .active * {
   margin: 20px auto; }
 
 .portfolio .shuffleMAF .shuffle-nav li {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   color: #272727;
   padding: 5px 20px;
   margin: 10px 5px; }
@@ -353,7 +357,7 @@ nav .navbar-nav .active * {
 .portfolio .shuffleMAF .shuffle-nav li:hover,
 .portfolio .shuffleMAF .shuffle-nav li:focus {
   background-color: #ffc600;
-  color: #FFFFFF; }
+  color: #ffffff; }
 
 .portfolio .shuffleMAF .shuffle-content .img1 {
   background: url("../img/s1.jpg");
@@ -437,7 +441,7 @@ nav .navbar-nav .active * {
   background-color: #2c3e50; }
 
 .shuffle-item .info h4 {
-  color: #FFFFFF; }
+  color: #ffffff; }
 
 .shuffle-item .info .btn:hover, .shuffle-item .info .contact-me form input:hover[type="submit"], .contact-me form .shuffle-item .info input:hover[type="submit"] {
   background-color: transparent;
@@ -489,18 +493,18 @@ footer .col:first-child {
   margin: 10px; }
 
 footer b {
-  color: #FFFFFF; }
+  color: #ffffff; }
 
 footer .social-media {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   color: #2c3e50;
   padding: 5px;
   margin: 5px;
-  border: 1px solid #FFFFFF; }
+  border: 1px solid #ffffff; }
 
 footer .social-media:hover {
   background-color: transparent;
-  color: #FFFFFF; }
+  color: #ffffff; }
 
 /* End footer */
 /* Start media query */
